@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-const initData = ['공부하기', '청소하기', '운동하기'];
-
-export default function Todos() {
-  const [todos, setTodos] = useState(initData);
-
+export default function Todos({ todos, handleDelete }) {
   return (
     <main>
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <li>
+            <input type='checkbox' name={todo} />
+            <label htmlFor={todo}>{todo}</label>
+            <button onClick={handleDelete}>삭제</button>
+          </li>
         ))}
       </ul>
     </main>
